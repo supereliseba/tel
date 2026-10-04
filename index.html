@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="nn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strikketeljar</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      font-family: sans-serif;
+      background: white;
+      color: #3f3e3e;
+    }
+    button {
+      flex: 1;
+      border: none;
+      font-size: 5rem;
+      background: white;
+      color: black;
+      touch-action: manipulation;
+    }
+    button:active {
+      background: #f0f0f0;
+    }
+    #minus {
+      text-align: right;
+    }
+    #pluss {
+      text-align: left;
+    }
+    #tal {
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+      font-weight: bold;
+      color: magenta;
+    }
+  </style>
+</head>
+<body>
+  <button id="minus">−</button>
+  <div id="tal">0</div>
+  <button id="pluss">+</button>
+
+  <script>
+    const talElement = document.getElementById("tal");
+    let tal = Number(localStorage.getItem("tal")) || 0;
+
+    function visOgLagre() {
+      talElement.textContent = tal;
+      localStorage.setItem("tal", tal);
+    }
+
+    document.getElementById("pluss").addEventListener("click", () => {
+      tal++;
+      visOgLagre();
+    });
+
+    document.getElementById("minus").addEventListener("click", () => {
+      if (tal > 0) {
+        tal--;
+        visOgLagre();
+      }
+    });
+
+    talElement.addEventListener("click", () => {
+      if (confirm("Nullstille teljaren?")) {
+        tal = 0;
+        visOgLagre();
+      }
+    });
+
+    visOgLagre();
+  </script>
+</body>
+</html>
