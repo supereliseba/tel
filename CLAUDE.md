@@ -16,6 +16,7 @@ Ein teljar eg brukar når eg strikkar, på Pixel 9 Pro XL.
 ### Funksjon
 - Tre element: minus-knapp, talet, pluss-knapp. Ikkje noko meir.
 - Talet skal hugsast mellom kvar gong appen vert opna.
+- Må kunne nullstille teljar når det trengst
 
 ### Design
 - Ekstremt enkelt og reint.
